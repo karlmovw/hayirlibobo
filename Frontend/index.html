@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hayirli Bobo Masjidi</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="lightboxYop()">
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="lightboxYop()">✕</button>
+    <img id="lightboxImg" src="" alt=""/>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal" onclick="videoYop()">
+  <div class="video-modal-inner" onclick="event.stopPropagation()">
+    <button class="video-modal-close" onclick="videoYop()">✕</button>
+    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+    </iframe>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <img src="./img/image copy 3.png" alt="Logo" class="logo-icon-css"/>
+    <div class="logo-text">
+      <span class="logo-main">MASJID</span>
+      <span class="logo-sub">Hayirli Bobo</span>
+    </div>
+  </div>
+  <ul class="nav-links" id="navMenu">
+    <li><a href="#beranda" class="active">Bosh sahifa</a></li>
+    <li><a href="#tentang">Biz haqimizda</a></li>
+ 
+    <li><a href="#kajian">Darslar</a></li>
+    <li><a href="#kontak">Aloqa</a></li>
+    <li><a href="#manzil">Manzil</a></li>
+  </ul>
+  <div class="til-selector">
+    <button class="til-btn active" onclick="tilOzgartir('uz')">UZ</button>
+    <button class="til-btn" onclick="tilOzgartir('en')">EN</button>
+    <button class="til-btn" onclick="tilOzgartir('ru')">РУ</button>
+  </div>
+  <a href="../admin/login.html" class="btn-login">Admin</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="beranda">
+  <div class="hero-overlay"></div>
+  <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?w=1400&q=80" alt="Masjid" class="hero-bg"/>
+  <div class="hero-content">
+    <p class="hero-greeting">Assalamu alaykum va rahmatullohi va barakatuh</p>
+    <h1 class="hero-title">Hayirli Bobo MASJIDIGA<br/>XUSH KELIBSIZ</h1>
+    <a href="#" class="btn-primary">Masjidga Infaq</a>
+  </div>
+</section>
+
+<!-- NAMOZ VAQTLARI BANNER -->
+<section class="jadwal-banner">
+  <div class="jadwal-left">
+    <div class="jadwal-masjid-icon"><img src="./img/1.png" alt=""></div>
+  </div>
+  <div class="jadwal-text">
+    <div class="banner-top">
+      <h2>Namoz Vaqtlari</h2>
+      <select id="shaharSelect" onchange="namozVaqtlariOl()">
+        <option value="Beruniy">Beruniy</option>
+        <option value="Toshkent">Toshkent</option>
+        <option value="Samarqand">Samarqand</option>
+        <option value="Buxoro">Buxoro</option>
+        <option value="Namangan">Namangan</option>
+        <option value="Andijon">Andijon</option>
+        <option value="Fargona">Farg'ona</option>
+        <option value="Nukus">Nukus</option>
+        <option value="Termiz">Termiz</option>
+      </select>
+    </div>
+    <div class="namoz-grid">
+      <div class="namoz-item"><span class="namoz-nom">Bomdod</span><span class="namoz-vaqt" id="fajr">--:--</span></div>
+      <div class="namoz-item"><span class="namoz-nom">Quyosh</span><span class="namoz-vaqt" id="sunrise">--:--</span></div>
+      <div class="namoz-item"><span class="namoz-nom">Peshin</span><span class="namoz-vaqt" id="dhuhr">--:--</span></div>
+      <div class="namoz-item"><span class="namoz-nom">Asr</span><span class="namoz-vaqt" id="asr">--:--</span></div>
+      <div class="namoz-item"><span class="namoz-nom">Shom</span><span class="namoz-vaqt" id="maghrib">--:--</span></div>
+      <div class="namoz-item"><span class="namoz-nom">Xufton</span><span class="namoz-vaqt" id="isha">--:--</span></div>
+    </div>
+    <div class="countdown-box" id="countdownBox">
+      <span id="countdownText">⏱ Yuklanmoqda...</span>
+    </div>
+  </div>
+</section>
+
+<!-- XIZMATLAR -->
+<section class="layanan" id="tentang">
+  <div class="section-header">
+    <span class="section-tag">XIZMATLAR</span>
+    <h2 class="section-title">Hayirli Bobo Masjidi</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="layanan-grid">
+    <div class="layanan-card">
+      <div class="card-icon"><img src="./img/masjid-1.png" alt=""></div>
+      <h3>Ibodat Joyi</h3>
+      <p>Namoz vaqtlarida jamoat namozlari uchun masjid doimo ochiq bo'ladi.</p>
+    </div>
+    <div class="layanan-card">
+      <div class="card-icon1"><img src="./img/photo_2026-03-18_21-00-56.jpg" alt=""></div>
+      <h3>Zakot va Sadaqa</h3>
+      <p>Zakot, Infaq va Sadaqalar Hayirli Bobo masjidi DKM tomonidan professional boshqariladi.</p>
+    </div>
+    <div class="layanan-card">
+      <div class="card-icon22"><img src="./img/download (3).png" alt=""></div>
+      <h3>Dars va Ta'lim</h3>
+      <p>Masjidda Tafsir, Juma kechasi va Mag'rib namozidan keyin ilmiy darslar o'tkaziladi.</p>
+    </div>
+    <div class="layanan-card">
+      <div class="card-iconn"><img src="./img/image copy 2.png" alt=""></div>
+      <h3>Ovqat Dasturxoni</h3>
+      <p>Juma namozi jamaatiga ovqat tayyorlash va ulashish dasturini muvofiqlashtiradi.</p>
+    </div>
+  </div>
+
+  <!-- KATEGORIYALAR -->
+  <div class="kategoriya-tabs">
+    <button class="kat-btn active" onclick="katOzgartir('videolar', this)">Videolar</button>
+    <button class="kat-btn" onclick="katOzgartir('rasmlar', this)">Rasmlar</button>
+    <button class="kat-btn" onclick="katOzgartir('kitoblar', this)">Kitoblar</button>
+  </div>
+
+  <!-- VIDEOLAR -->
+  <div class="kat-content" id="kat-videolar">
+    <div class="video-grid">
+      <div class="video-card" onclick="videoOch('FYHkhCLFpHo')">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/FYHkhCLFpHo/hqdefault.jpg" alt="Video"/>
+          <div class="play-btn">▶</div>
+        </div>
+        <p class="video-title">Juma xutbasi</p>
+        <span class="video-meta">3 hafta oldin</span>
+      </div>
+      <div class="video-card" onclick="videoOch('WRAzt18FlwE')">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/WRAzt18FlwE/hqdefault.jpg" alt="Video"/>
+          <div class="play-btn">▶</div>
+        </div>
+        <p class="video-title">Quron tafsiri darsi</p>
+        <span class="video-meta">1 oy oldin</span>
+      </div>
+      <div class="video-card" onclick="videoOch('gV3zNhbf37E')">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/gV3zNhbf37E/hqdefault.jpg" alt="Video"/>
+          <div class="play-btn">▶</div>
+        </div>
+        <p class="video-title">Ramazon derslari</p>
+        <span class="video-meta">2 oy oldin</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RASMLAR -->
+  <div class="kat-content" id="kat-rasmlar" style="display:none">
+    <div class="rasm-grid">
+      <div class="rasm-card" onclick="lightboxOch(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?w=400&q=80" alt="Masjid"/>
+      </div>
+      <div class="rasm-card" onclick="lightboxOch(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Masjid"/>
+      </div>
+      <div class="rasm-card" onclick="lightboxOch(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80" alt="Masjid"/>
+      </div>
+      <div class="rasm-card" onclick="lightboxOch(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?w=400&q=80" alt="Masjid"/>
+      </div>
+      <div class="rasm-card" onclick="lightboxOch(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Masjid"/>
+      </div>
+      <div class="rasm-card" onclick="lightboxOch(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80" alt="Masjid"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- KITOBLAR -->
+  <div class="kat-content" id="kat-kitoblar" style="display:none">
+    <div class="kitob-grid">
+      <div class="kitob-card">
+        <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=200&q=80" alt="Kitob"/>
+        <div class="kitob-info">
+          <h4>Riyadus Salihin</h4>
+          <p>Imom Navaviy</p>
+          <p class="kitob-tavsif">Hadis va amallar haqida mashhur kitob.</p>
+          <a href="#" class="kitob-btn">⬇ Yuklab olish</a>
+        </div>
+      </div>
+      <div class="kitob-card">
+        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=200&q=80" alt="Kitob"/>
+        <div class="kitob-info">
+          <h4>Sahihi Buxoriy</h4>
+          <p>Imom Buxoriy</p>
+          <p class="kitob-tavsif">Eng ishonchli hadis to'plami.</p>
+          <a href="#" class="kitob-btn">⬇ Yuklab olish</a>
+        </div>
+      </div>
+      <div class="kitob-card">
+                <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=200&q=80" alt="Kitob"/>
+        <div class="kitob-info">
+          <h4>Fiqhus Sunna</h4>
+          <p>Sayyid Sobiq</p>
+          <p class="kitob-tavsif">Islomiy fiqh asoslari haqida kitob.</p>
+          <a href="#" class="kitob-btn">⬇ Yuklab olish</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DARSLAR -->
+<section class="kajian" id="kajian">
+  <div class="section-header">
+    <span class="section-tag">JIHOD</span>
+    <h2 class="section-title">Hayirli Bobo Yakshanba Darslari</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="kajian-grid">
+    <div class="kajian-card">
+      <img src="./img/image copy 2.png" alt="Yakshanba Darsi"/>
+      <div class="kajian-info">
+        <h4>YAKSHANBA DARSI</h4>
+        <p class="kajian-time">08:00 - 10:00</p>
+        <p>Islomiy ilmlar bo'yicha haftalik yakshanba darslari har haftada o'tkaziladi.</p>
+        <p>Barcha yoshdagi muslimlar qatnashishi mumkin.</p>
+        <a href="#" class="btn-link">Batafsil</a>
+      </div>
+    </div>
+    <div class="kajian-card">
+      <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=500&q=80" alt="Fiqh Darsi"/>
+      <div class="kajian-info">
+        <h4>FIQH DARSI</h4>
+        <p class="kajian-time">08:00 - 10:00</p>
+        <p>Islomiy fiqh va ibodatlar haqida batafsil darslar beriladi.</p>
+        <p>Savol-javob shaklida o'tkaziladi.</p>
+        <a href="#" class="btn-link">Batafsil</a>
+      </div>
+    </div>
+    <div class="kajian-card">
+      <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=500&q=80" alt="Quron Tafsiri"/>
+      <div class="kajian-info">
+        <h4>QURON TAFSIRI</h4>
+        <p class="kajian-time">08:00 - 10:00</p>
+        <p>Quron oyatlari tafsiri va ma'nolari haqida batafsil darslar.</p>
+        <p>Ustoz rahbarligida o'qish va tushunish.</p>
+        <a href="#" class="btn-link">Batafsil</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RAHBARIYAT -->
+<section class="pengurus">
+  <div class="section-header">
+    <span class="section-tag">RAHBARIYAT</span>
+    <h2 class="section-title">Hayirli Bobo Masjidi</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pengurus-list">
+    <div class="pengurus-item">
+      <div class="pengurus-avatar">
+        <img src="./img/shukur.png" alt=""/>
+      </div>
+      <div class="pengurus-info">
+        <h4>Shukurullo Domla</h4>
+        <span class="pengurus-jabatan">DKM RAISI</span>
+      </div>
+    </div>
+    <div class="pengurus-item">
+      <div class="pengurus-avatar placeholder">
+        <img src="./img/shukur.png" alt="">
+      </div>
+      <div class="pengurus-info">
+        <h4>SOFIAN MARTIN TAJIRI</h4>
+        <span class="pengurus-jabatan">DKM RAISI</span>
+      </div>
+    </div>
+    <div class="pengurus-item">
+      <div class="pengurus-avatar placeholder">
+        <img src="./img/shukur.png" alt="">
+      </div>
+      <div class="pengurus-info">
+        <h4>SOFIAN MARTIN TAJIRI</h4>
+        <span class="pengurus-jabatan">DKM RAISI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALEREYA -->
+<section class="galeri">
+  <div class="section-header">
+    <span class="section-tag">GALEREYA</span>
+    <h2 class="section-title">Hayirli Bobo Masjidi</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="galeri-layout">
+    <div class="galeri-images">
+      <img src="./img/mas-1.png" alt="Galereya 1" class="galeri-big"/>
+      <div class="galeri-small-col">
+        <img src="./img/mas-2.png" alt="Galereya 2"/>
+        <img src="./img/mas-3.png" alt="Galereya 3"/>
+      </div>
+    </div>
+    <div class="galeri-desc">
+      <h3>Masjid <span class="highlight">Hayirli Bobo</span></h3>
+      <p>Allah taoloning roziligi uchun Masjidni markaziy faoliyat joyi sifatida belgilab, ruhan va jismonan barkamol jamiyatni yaratish maqsad qilib qo'yilgan.</p>
+      <p>Hayirli Bobo masjidi rahbariyatining shiori:</p>
+      <p><strong>"Masjiddan Ummat Qurish"</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- MANZIL -->
+<section class="manzil" id="manzil">
+  <div class="section-header">
+    <span class="section-tag">MANZIL</span>
+    <h2 class="section-title">Bizning Joylashuvimiz</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="manzil-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52703.32438103001!2d60.8378984422953!3d41.683967802826594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfd500501d6339%3A0x677a26eb830aef75!2sXayrli%20bobo%20masjidi!5e1!3m2!1suz!2s!4v1773896803014!5m2!1suz!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="kontak">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="footer-logo-icon"><img src="./img/image copy 3.png" alt=""></span>
+        <div class="logo-text">
+          <span class="logo-main">MASJID</span>
+          <span class="logo-sub">Hayirli Bobo</span>
+        </div>
+      </div>
+      <p class="footer-quote">"Kim Allah uchun masjid qursa, Allah unga Jannanda uy quradi" (Imom Buxoriy va Muslim rivoyati).</p>
+    </div>
+    <div class="footer-info">
+      <h4>Ma'lumot</h4>
+      <div class="footer-item">
+        <div class="footer-icon-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div><strong>Manzil</strong><p>Hayirli Bobo ko'chasi, Toshkent</p></div>
+      </div>
+      <div class="footer-item">
+        <div class="footer-icon-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div><strong>Aloqa</strong><p>0821-2185-5764 (Heru Jakarta)</p></div>
+      </div>
+      <div class="footer-item">
+        <div class="footer-icon-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div><p>0882-1848-7998 (Masjid Imomi)</p></div>
+      </div>
+      <div class="footer-item">
+        <div class="footer-icon-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div><p>0821-2628-5758 (Sofian Martin Tajiri)</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright © Hayirli Bobo Masjidi 2024</p>
+  </div>
+</footer>
+
+<script>
+// HAMBURGER
+function toggleMenu() {
+  document.getElementById('navMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('active');
+  });
+});
+
+// NAMOZ VAQTLARI
+const SHAHARLAR = {
+  'Beruniy':   { lat: 41.6833, lng: 60.7500 },
+  'Toshkent':  { lat: 41.2995, lng: 69.2401 },
+  'Samarqand': { lat: 39.6542, lng: 66.9597 },
+  'Buxoro':    { lat: 39.7747, lng: 64.4286 },
+  'Namangan':  { lat: 41.0011, lng: 71.6680 },
+  'Andijon':   { lat: 40.7829, lng: 72.3442 },
+  'Fargona':   { lat: 40.3864, lng: 71.7864 },
+  'Nukus':     { lat: 42.4600, lng: 59.6100 },
+  'Termiz':    { lat: 37.2242, lng: 67.2783 },
+};
+
+async function namozVaqtlariOl() {
+  const shahar = document.getElementById('shaharSelect').value;
+  const coords = SHAHARLAR[shahar];
+  if (!coords) return;
+  const bugun = new Date();
+  const kun = bugun.getDate();
+  const oy = bugun.getMonth() + 1;
+  const yil = bugun.getFullYear();
+  ['fajr','sunrise','dhuhr','asr','maghrib','isha'].forEach(id => {
+    document.getElementById(id).textContent = '...';
+  });
+  try {
+    const url = 'https://api.aladhan.com/v1/timings/' + kun + '-' + oy + '-' + yil
+      + '?latitude=' + coords.lat + '&longitude=' + coords.lng
+      + '&method=2&school=1&timezone=Asia/Tashkent';
+    const res = await fetch(url);
+    const data = await res.json();
+    const t = data.data.timings;
+    document.getElementById('fajr').textContent    = t.Fajr;
+    document.getElementById('sunrise').textContent = t.Sunrise;
+    document.getElementById('dhuhr').textContent   = t.Dhuhr;
+    document.getElementById('asr').textContent     = t.Asr;
+    document.getElementById('maghrib').textContent = t.Maghrib;
+    document.getElementById('isha').textContent    = t.Isha;
+    countdownBoshlash();
+  } catch(e) {
+    ['fajr','sunrise','dhuhr','asr','maghrib','isha'].forEach(id => {
+      document.getElementById(id).textContent = '--:--';
+    });
+  }
+}
+namozVaqtlariOl();
+
+// COUNTDOWN
+let countdownInterval = null;
+function countdownBoshlash() {
+  if (countdownInterval) clearInterval(countdownInterval);
+  countdownInterval = setInterval(countdownYangilash, 1000);
+  countdownYangilash();
+}
+function countdownYangilash() {
+  const nomlar = ['Bomdod','Quyosh','Peshin','Asr','Shom','Xufton'];
+  const idlar = ['fajr','sunrise','dhuhr','asr','maghrib','isha'];
+  const hozir = new Date();
+  let keyingiNom = null, keyingiVaqt = null, minDiff = Infinity;
+  idlar.forEach((id, i) => {
+    const v = document.getElementById(id).textContent;
+    if (!v || v === '--:--' || v === '...') return;
+    const [s, m] = v.split(':').map(Number);
+    const nv = new Date(); nv.setHours(s, m, 0, 0);
+    const diff = nv - hozir;
+    if (diff > 0 && diff < minDiff) { minDiff = diff; keyingiNom = nomlar[i]; keyingiVaqt = diff; }
+  });
+  const box = document.getElementById('countdownText');
+  if (!box) return;
+  if (!keyingiNom) { box.textContent = '✓ Bugungi barcha namozlar otdi'; return; }
+  const sQ = Math.floor(keyingiVaqt / 3600000);
+  const mQ = Math.floor((keyingiVaqt % 3600000) / 60000);
+  const secQ = Math.floor((keyingiVaqt % 60000) / 1000);
+  box.textContent = sQ > 0
+    ? '⏱ ' + keyingiNom + 'ga: ' + sQ + ' soat ' + mQ + ' daqiqa ' + secQ + ' soniya'
+    : '⏱ ' + keyingiNom + 'ga: ' + mQ + ' daqiqa ' + secQ + ' soniya';
+}
+
+// LIGHTBOX
+function lightboxOch(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function lightboxYop() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// VIDEO MODAL
+function videoOch(videoId) {
+  document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function videoYop() {
+  document.getElementById('videoFrame').src = '';
+  document.getElementById('videoModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { lightboxYop(); videoYop(); }
+});
+
+// KATEGORIYALAR
+function katOzgartir(kat, btn) {
+  document.querySelectorAll('.kat-content').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.kat-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('kat-' + kat).style.display = 'block';
+  btn.classList.add('active');
+}
+
+// TILLAR
+const MATNLAR = {
+  uz: {
+    nav: ['Bosh sahifa','Biz haqimizda','Tadbirlar','Darslar','Aloqa','Manzil'],
+    login: 'Kirish',
+    greeting: 'Assalamu alaykum va rahmatullohi va barakatuh',
+    heroTitle: "Hayirli Bobo MASJIDIGA<br/>XUSH KELIBSIZ",
+    heroBtn: 'Masjidga Infaq',
+    namozTitle: 'Namoz Vaqtlari',
+    namozNomlar: ['Bomdod','Quyosh','Peshin','Asr','Shom','Xufton'],
+    xizmatTag: 'XIZMATLAR', xizmatTitle: 'Hayirli Bobo Masjidi',
+    xizmat1h: 'Ibodat Joyi', xizmat1p: "Namoz vaqtlarida jamoat namozlari uchun masjid doimo ochiq bo'ladi.",
+    xizmat2h: 'Zakot va Sadaqa', xizmat2p: 'Zakot, Infaq va Sadaqalar Hayirli Bobo masjidi DKM tomonidan professional boshqariladi.',
+    xizmat3h: "Dars va Ta'lim", xizmat3p: "Masjidda Tafsir, Juma kechasi va Mag'rib namozidan keyin ilmiy darslar o'tkaziladi.",
+    xizmat4h: 'Ovqat Dasturxoni', xizmat4p: "Juma namozi jamaatiga ovqat tayyorlash va ulashish dasturini muvofiqlashtiradi.",
+    katVideolar: 'Videolar', katRasmlar: 'Rasmlar', katKitoblar: 'Kitoblar',
+    video1: 'Juma xutbasi', video2: 'Quron tafsiri darsi', video3: 'Ramazon derslari',
+    tadbirTitle: "Kelgusi <span class='highlight'>Tadbirlar</span>",
+    darsTag: 'JIHOD', darsTitle: 'Hayirli Bobo Yakshanba Darslari',
+    dars1h: 'YAKSHANBA DARSI', dars1p1: "Islomiy ilmlar bo'yicha haftalik yakshanba darslari har haftada o'tkaziladi.", dars1p2: "Barcha yoshdagi muslimlar qatnashishi mumkin.",
+    dars2h: 'FIQH DARSI', dars2p1: "Islomiy fiqh va ibodatlar haqida batafsil darslar beriladi.", dars2p2: "Savol-javob shaklida o'tkaziladi.",
+    dars3h: 'QURON TAFSIRI', dars3p1: "Quron oyatlari tafsiri va ma'nolari haqida batafsil darslar.", dars3p2: "Ustoz rahbarligida o'qish va tushunish.",
+    batafsil: 'Batafsil', rahbarTag: 'RAHBARIYAT', rahbarTitle: 'Hayirli Bobo Masjidi', jabatan: 'DKM RAISI',
+    galeriTag: 'GALEREYA', galeriTitle: 'Hayirli Bobo Masjidi',
+    galeriH: "Masjid <span class='highlight'>Hayirli Bobo</span>",
+    galeriP1: "Allah taoloning roziligi uchun Masjidni markaziy faoliyat joyi sifatida belgilab, ruhan va jismonan barkamol jamiyatni yaratish maqsad qilib qo'yilgan.",
+    galeriP2: "Hayirli Bobo masjidi rahbariyatining shiori:", galeriP3: '"Masjiddan Ummat Qurish"',
+    yangiliklarTag: 'YANGILIKLAR', yangiliklarTitle: "So'nggi Xabarlar",
+    yangilik1h: 'OZIQ-OVQAT ULASHISH', yangilik1p: "Masjid atrofidagi aholi va Hayirli Bobo masjidi jamaatiga oziq-ovqat ulashish tadbirini o'tkazildi.",
+    yangilik2h: 'BIRGALIKDA TOZALASH KUNI', yangilik2p: "Birgalikda tozalash — Hayirli Bobo masjidida muntazam o'tkaziladigan jamoat tadbirlaridan biri.",
+    yangilik3h: 'RAMAZON HAYITI 1445H', yangilik3p: "Hayirli Bobo masjidida Ramazon Hayiti namozi o'tkazildi. Ustoz Muhammad Bisri Syamsuri imomlik qildi.",
+    manzilTag: 'MANZIL', manzilTitle: 'Bizning Joylashuvimiz',
+    footerQuote: '"Kim Allah uchun masjid qursa, Allah unga Jannanda uy quradi" (Imom Buxoriy va Muslim rivoyati).',
+    footerInfoTitle: "Ma'lumot", footerManzilLabel: 'Manzil', footerManzilVal: "Hayirli Bobo ko'chasi, Toshkent",
+    footerAloqaLabel: 'Aloqa', footerCopy: 'Copyright © Hayirli Bobo Masjidi 2024',
+    kitob1h: 'Riyadus Salihin', kitob1p: 'Imom Navaviy', kitob1t: 'Hadis va amallar haqida mashhur kitob.',
+    kitob2h: 'Sahihi Buxoriy', kitob2p: 'Imom Buxoriy', kitob2t: "Eng ishonchli hadis to'plami.",
+    kitob3h: 'Fiqhus Sunna', kitob3p: 'Sayyid Sobiq', kitob3t: 'Islomiy fiqh asoslari haqida kitob.',
+    yuklab: '⬇ Yuklab olish',
+    
+  },
+  en: {
+    nav: ['Home','About Us','Events','Lessons','Contact','Location'],
+    login: 'Login', greeting: 'Assalamu alaykum wa rahmatullahi wa barakatuh',
+    heroTitle: "WELCOME TO<br/>Hayirli Bobo MOSQUE", heroBtn: 'Donate to Mosque',
+    namozTitle: 'Prayer Times', namozNomlar: ['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'],
+    xizmatTag: 'SERVICES', xizmatTitle: 'Hayirli Bobo Mosque',
+    xizmat1h: 'Place of Worship', xizmat1p: 'The mosque is always open for congregational prayers during prayer times.',
+    xizmat2h: 'Zakat & Charity', xizmat2p: 'Zakat, Infaq and Sadaqah are professionally managed by the DKM of Hayirli Bobo Mosque.',
+    xizmat3h: 'Lessons & Education', xizmat3p: 'Islamic lessons including Tafsir, Friday evening and after Maghrib classes are held at the mosque.',
+    xizmat4h: 'Food Service', xizmat4p: 'Coordinates the Friday Barakah program providing food for Friday prayer congregation.',
+    katVideolar: 'Videos', katRasmlar: 'Photos', katKitoblar: 'Books',
+    video1: 'Friday sermon', video2: 'Quran tafsir lesson', video3: 'Ramadan lessons',
+    tadbirTitle: "Upcoming <span class='highlight'>Events</span>",
+    darsTag: 'JIHAD', darsTitle: 'Hayirli Bobo Sunday Lessons',
+    dars1h: 'SUNDAY LESSON', dars1p1: 'Weekly Sunday lessons on Islamic sciences are held every week.', dars1p2: 'Muslims of all ages can participate.',
+    dars2h: 'FIQH LESSON', dars2p1: 'Detailed lessons on Islamic jurisprudence and worship are given.', dars2p2: 'Conducted in question and answer format.',
+    dars3h: 'QURAN TAFSIR', dars3p1: 'Detailed lessons on the interpretation and meanings of Quran verses.', dars3p2: 'Reading and understanding under the guidance of a teacher.',
+    batafsil: 'Read More', rahbarTag: 'MANAGEMENT', rahbarTitle: 'Hayirli Bobo Mosque', jabatan: 'DKM CHAIRMAN',
+    galeriTag: 'GALLERY', galeriTitle: 'Hayirli Bobo Mosque',
+    galeriH: "Mosque <span class='highlight'>Hayirli Bobo</span>",
+    galeriP1: 'The goal is to create a spiritually and physically prosperous community centered around the Mosque for the pleasure of Allah.',
+    galeriP2: 'The motto of Hayirli Bobo mosque management is:', galeriP3: '"Building the Ummah from the Mosque"',
+    yangiliklarTag: 'NEWS', yangiliklarTitle: 'Latest News',
+    yangilik1h: 'FOOD DISTRIBUTION', yangilik1p: 'A food distribution event was held for the community around the mosque and Hayirli Bobo mosque congregation.',
+    yangilik2h: 'COMMUNITY CLEAN-UP DAY', yangilik2p: 'Community clean-up is one of the regular community events held at Hayirli Bobo mosque.',
+    yangilik3h: 'EID AL-FITR 1445H', yangilik3p: 'Eid al-Fitr prayer was held at Hayirli Bobo Mosque. Ustaz Muhammad Bisri Syamsuri led the prayer.',
+    manzilTag: 'LOCATION', manzilTitle: 'Our Location',
+    footerQuote: '"Whoever builds a mosque for Allah, Allah will build for him a house in Paradise" (Bukhari and Muslim).',
+    footerInfoTitle: 'Information', footerManzilLabel: 'Address', footerManzilVal: 'Hayirli Bobo Street, Tashkent',
+    footerAloqaLabel: 'Contact', footerCopy: 'Copyright © Hayirli Bobo Mosque 2024',
+    kitob1h: 'Riyadus Salihin', kitob1p: 'Imam Nawawi', kitob1t: 'A famous book on hadiths and deeds.',
+    kitob2h: 'Sahih Bukhari', kitob2p: 'Imam Bukhari', kitob2t: 'The most authentic hadith collection.',
+    kitob3h: 'Fiqhus Sunna', kitob3p: 'Sayyid Sabiq', kitob3t: 'A book on the basics of Islamic jurisprudence.',
+    yuklab: '⬇ Download',
+  },
+  ru: {
+    nav: ['Главная','О нас','Мероприятия','Уроки','Контакт','Адрес'],
+    login: 'Войти', greeting: 'Ассаламу алайкум ва рахматуллахи ва баракатух',
+    heroTitle: "ДОБРО ПОЖАЛОВАТЬ В<br/>МЕЧЕТЬ Hayirli Bobo", heroBtn: 'Пожертвовать мечети',
+    namozTitle: 'Время намаза', namozNomlar: ['Фаджр','Восход','Зухр','Аср','Магриб','Иша'],
+    xizmatTag: 'УСЛУГИ', xizmatTitle: 'Мечеть Hayirli Bobo',
+    xizmat1h: 'Место поклонения', xizmat1p: 'Мечеть всегда открыта для совместных намазов в установленное время.',
+    xizmat2h: 'Закят и Садака', xizmat2p: 'Закят, Инфак и Садака профессионально управляются ДКМ мечети Hayirli Bobo.',
+    xizmat3h: 'Уроки и обучение', xizmat3p: 'В мечети проводятся уроки тафсира, в пятницу вечером и после намаза магриб.',
+    xizmat4h: 'Столовая', xizmat4p: 'Координирует программу пятничного баракяха по обеспечению едой прихожан.',
+    katVideolar: 'Видео', katRasmlar: 'Фото', katKitoblar: 'Книги',
+    video1: 'Пятничная хутба', video2: 'Урок тафсира Корана', video3: 'Уроки Рамадана',
+    tadbirTitle: "Предстоящие <span class='highlight'>Мероприятия</span>",
+    darsTag: 'ДЖИХАД', darsTitle: 'Воскресные уроки Hayirli Bobo',
+    dars1h: 'ВОСКРЕСНЫЙ УРОК', dars1p1: 'Еженедельные воскресные уроки по исламским наукам проводятся каждую неделю.', dars1p2: 'Могут участвовать мусульмане всех возрастов.',
+    dars2h: 'УРОК ФИКХА', dars2p1: 'Проводятся подробные уроки по исламскому праву и поклонению.', dars2p2: 'Проводится в формате вопросов и ответов.',
+    dars3h: 'ТАФСИР КОРАНА', dars3p1: 'Подробные уроки по толкованию и смыслам аятов Корана.', dars3p2: 'Чтение и понимание под руководством учителя.',
+    batafsil: 'Подробнее', rahbarTag: 'РУКОВОДСТВО', rahbarTitle: 'Мечеть Hayirli Bobo', jabatan: 'ПРЕДСЕДАТЕЛЬ ДКМ',
+    galeriTag: 'ГАЛЕРЕЯ', galeriTitle: 'Мечеть Hayirli Bobo',
+    galeriH: "Мечеть <span class='highlight'>Hayirli Bobo</span>",
+    galeriP1: 'Цель — создать духовно и физически процветающее общество, сосредоточенное вокруг Мечети во имя довольства Аллаха.',
+    galeriP2: 'Девиз руководства мечети Hayirli Bobo:', galeriP3: '"Строить Умму из Мечети"',
+    yangiliklarTag: 'НОВОСТИ', yangiliklarTitle: 'Последние новости',
+    yangilik1h: 'РАЗДАЧА ПРОДУКТОВ', yangilik1p: 'Было проведено мероприятие по раздаче продуктов для жителей вокруг мечети и прихожан.',
+    yangilik2h: 'СОВМЕСТНАЯ УБОРКА', yangilik2p: 'Совместная уборка — одно из регулярных общественных мероприятий в мечети Hayirli Bobo.',
+    yangilik3h: 'ИД АЛЬ-ФИТР 1445Х', yangilik3p: 'В мечети Hayirli Bobo был совершён намаз Ид аль-Фитр. Имамом был устаз Мухаммад Бисри Шамсури.',
+    manzilTag: 'АДРЕС', manzilTitle: 'Наше местоположение',
+    footerQuote: '"Тот, кто построит мечеть ради Аллаха, Аллах построит для него дом в Раю" (Бухари и Муслим).',
+    footerInfoTitle: 'Информация', footerManzilLabel: 'Адрес', footerManzilVal: 'Улица Hayirli Bobo, Ташкент',
+    footerAloqaLabel: 'Контакт', footerCopy: 'Copyright © Мечеть Hayirli Bobo 2024',
+    kitob1h: 'Риядус Салихин', kitob1p: 'Имам Навави', kitob1t: 'Известная книга о хадисах и деяниях.',
+    kitob2h: 'Сахих аль-Бухари', kitob2p: 'Имам Бухари', kitob2t: 'Наиболее достоверный сборник хадисов.',
+    kitob3h: 'Фикхус Сунна', kitob3p: 'Саид Сабик', kitob3t: 'Книга об основах исламского права.',
+    yuklab: '⬇ Скачать',
+  }
+};
+
+let joriyTil = 'uz';
+
+function tilOzgartir(til) {
+  joriyTil = til;
+  const m = MATNLAR[til];
+  document.querySelectorAll('.til-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelector('[onclick="tilOzgartir(\'' + til + '\')"]').classList.add('active');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  m.nav.forEach((matn, i) => { if(navLinks[i]) navLinks[i].textContent = matn; });
+  document.querySelector('.btn-login').textContent = m.login;
+  document.querySelector('.hero-greeting').textContent = m.greeting;
+  document.querySelector('.hero-title').innerHTML = m.heroTitle;
+  document.querySelector('.btn-primary').textContent = m.heroBtn;
+  document.querySelector('.banner-top h2').textContent = m.namozTitle;
+  const nomlar = document.querySelectorAll('.namoz-nom');
+  m.namozNomlar.forEach((n, i) => { if(nomlar[i]) nomlar[i].textContent = n; });
+  document.querySelector('.layanan .section-tag').textContent = m.xizmatTag;
+  document.querySelector('.layanan .section-title').textContent = m.xizmatTitle;
+  const cards = document.querySelectorAll('.layanan-card');
+  if(cards[0]) { cards[0].querySelector('h3').textContent = m.xizmat1h; cards[0].querySelector('p').textContent = m.xizmat1p; }
+  if(cards[1]) { cards[1].querySelector('h3').textContent = m.xizmat2h; cards[1].querySelector('p').textContent = m.xizmat2p; }
+  if(cards[2]) { cards[2].querySelector('h3').textContent = m.xizmat3h; cards[2].querySelector('p').textContent = m.xizmat3p; }
+  if(cards[3]) { cards[3].querySelector('h3').textContent = m.xizmat4h; cards[3].querySelector('p').textContent = m.xizmat4p; }
+  // KATEGORIYA TABLARI
+  const katBtnlar = document.querySelectorAll('.kat-btn');
+  if(katBtnlar[0]) katBtnlar[0].textContent = m.katVideolar;
+  if(katBtnlar[1]) katBtnlar[1].textContent = m.katRasmlar;
+  if(katBtnlar[2]) katBtnlar[2].textContent = m.katKitoblar;
+  // VIDEO NOMLAR
+  const videoTitlelar = document.querySelectorAll('.video-title');
+  if(videoTitlelar[0]) videoTitlelar[0].textContent = m.video1;
+  if(videoTitlelar[1]) videoTitlelar[1].textContent = m.video2;
+  if(videoTitlelar[2]) videoTitlelar[2].textContent = m.video3;
+  const kegiatan = document.querySelector('.kegiatan .section-title');
+  if(kegiatan) kegiatan.innerHTML = m.tadbirTitle;
+  document.querySelector('.kajian .section-tag').textContent = m.darsTag;
+  document.querySelector('.kajian .section-title').textContent = m.darsTitle;
+  const kajianCards = document.querySelectorAll('.kajian-card');
+  if(kajianCards[0]) { kajianCards[0].querySelector('h4').textContent = m.dars1h; const ps0 = kajianCards[0].querySelectorAll('p:not(.kajian-time)'); if(ps0[0]) ps0[0].textContent = m.dars1p1; if(ps0[1]) ps0[1].textContent = m.dars1p2; kajianCards[0].querySelector('.btn-link').textContent = m.batafsil; }
+  if(kajianCards[1]) { kajianCards[1].querySelector('h4').textContent = m.dars2h; const ps1 = kajianCards[1].querySelectorAll('p:not(.kajian-time)'); if(ps1[0]) ps1[0].textContent = m.dars2p1; if(ps1[1]) ps1[1].textContent = m.dars2p2; kajianCards[1].querySelector('.btn-link').textContent = m.batafsil; }
+  if(kajianCards[2]) { kajianCards[2].querySelector('h4').textContent = m.dars3h; const ps2 = kajianCards[2].querySelectorAll('p:not(.kajian-time)'); if(ps2[0]) ps2[0].textContent = m.dars3p1; if(ps2[1]) ps2[1].textContent = m.dars3p2; kajianCards[2].querySelector('.btn-link').textContent = m.batafsil; }
+  document.querySelector('.pengurus .section-tag').textContent = m.rahbarTag;
+  document.querySelector('.pengurus .section-title').textContent = m.rahbarTitle;
+  document.querySelectorAll('.pengurus-jabatan').forEach(el => el.textContent = m.jabatan);
+  document.querySelector('.galeri .section-tag').textContent = m.galeriTag;
+  document.querySelector('.galeri .section-title').textContent = m.galeriTitle;
+  document.querySelector('.galeri-desc h3').innerHTML = m.galeriH;
+  const galeriPs = document.querySelectorAll('.galeri-desc p');
+  if(galeriPs[0]) galeriPs[0].textContent = m.galeriP1;
+  if(galeriPs[1]) galeriPs[1].textContent = m.galeriP2;
+  if(galeriPs[2]) galeriPs[2].innerHTML = '<strong>' + m.galeriP3 + '</strong>';
+  document.querySelector('.berita .section-tag').textContent = m.yangiliklarTag;
+  document.querySelector('.berita .section-title').textContent = m.yangiliklarTitle;
+  const beritaCards = document.querySelectorAll('.berita-card');
+  if(beritaCards[0]) { beritaCards[0].querySelector('h4').textContent = m.yangilik1h; beritaCards[0].querySelector('p').textContent = m.yangilik1p; beritaCards[0].querySelector('.btn-link').textContent = m.batafsil; }
+  if(beritaCards[1]) { beritaCards[1].querySelector('h4').textContent = m.yangilik2h; beritaCards[1].querySelector('p').textContent = m.yangilik2p; beritaCards[1].querySelector('.btn-link').textContent = m.batafsil; }
+  if(beritaCards[2]) { beritaCards[2].querySelector('h4').textContent = m.yangilik3h; beritaCards[2].querySelector('p').textContent = m.yangilik3p; beritaCards[2].querySelector('.btn-link').textContent = m.batafsil; }
+  document.querySelector('.manzil .section-tag').textContent = m.manzilTag;
+  document.querySelector('.manzil .section-title').textContent = m.manzilTitle;
+  document.querySelector('.footer-quote').textContent = m.footerQuote;
+  document.querySelector('.footer-info h4').textContent = m.footerInfoTitle;
+  const footerStrongs = document.querySelectorAll('.footer-item strong');
+  if(footerStrongs[0]) footerStrongs[0].textContent = m.footerManzilLabel;
+  if(footerStrongs[1]) footerStrongs[1].textContent = m.footerAloqaLabel;
+  document.querySelector('.footer-bottom p').textContent = m.footerCopy;
+  // KITOB MA'LUMOTLARI
+const kitobCards = document.querySelectorAll('.kitob-card');
+if(kitobCards[0]) {
+  kitobCards[0].querySelector('h4').textContent = m.kitob1h;
+  const kps0 = kitobCards[0].querySelectorAll('p');
+  if(kps0[0]) kps0[0].textContent = m.kitob1p;
+  if(kps0[1]) kps0[1].textContent = m.kitob1t;
+  kitobCards[0].querySelector('.kitob-btn').textContent = m.yuklab;
+}
+if(kitobCards[1]) {
+  kitobCards[1].querySelector('h4').textContent = m.kitob2h;
+  const kps1 = kitobCards[1].querySelectorAll('p');
+  if(kps1[0]) kps1[0].textContent = m.kitob2p;
+  if(kps1[1]) kps1[1].textContent = m.kitob2t;
+  kitobCards[1].querySelector('.kitob-btn').textContent = m.yuklab;
+}
+if(kitobCards[2]) {
+  kitobCards[2].querySelector('h4').textContent = m.kitob3h;
+  const kps2 = kitobCards[2].querySelectorAll('p');
+  if(kps2[0]) kps2[0].textContent = m.kitob3p;
+  if(kps2[1]) kps2[1].textContent = m.kitob3t;
+  kitobCards[2].querySelector('.kitob-btn').textContent = m.yuklab;
+}
+  
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/"
+  to = "/Frontend/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/Frontend/*"
+  to = "/Frontend/:splat"
+  status = 200
